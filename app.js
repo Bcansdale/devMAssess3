@@ -58,11 +58,31 @@ const OTHER_FOSSILS = [
     img: '/img/tricera_skull.png',
     name: 'Triceratops',
   },
+  {
+    img: '/img/trex_skull.png',
+    name: 'Tyrannosaurus Rex',
+  },
+  {
+    img: '/img/stego_skull.png',
+    name: 'Stegosaurus',
+  },
+  {
+    img: '/img/quetzal_torso.png',
+    name: 'Quetzal',
+  },
+  {
+    img: '/img/australopith.png',
+    name: 'Australopithecus',
+  }
 ];
 
 app.get('/', (req,res) => {
-  res.render('homepage.html.njk')
-})
+  if (res.req.username) {
+    res.redirect('/top-fossils')
+  } else {
+  res.render('homepage.html.njk');
+  }
+});
 
 
 app.get('/get-name', (req, res) => {
@@ -72,8 +92,24 @@ app.get('/get-name', (req, res) => {
 })
 
 app.get('/top-fossils', (req, res) => {
-  res.render('top-fossils.html.njk', { fossils: MOST_LIKED_FOSSILS, userName: req.session.username });
+  if (req.session.username){
+    res.render('top-fossils.html.njk', { fossils: MOST_LIKED_FOSSILS, userName: req.session.username });
+  } else {
+    res.redirect('/')
+  }
 });
+
+app.post('/like-fossil', (req, res) => {
+  const fossilId = req.body.fossilId;
+  if (fossilId) {
+    const fossil = MOST_LIKED_FOSSILS[fossilId];
+    if (fossil) {
+      fossil.num_likes++;
+      res.render('thank-you.html.njk', {userName: req.session.username});
+    }
+  }
+});
+
 
 app.get('/random-fossil.json', (req, res) => {
   const randomFossil = lodash.sample(OTHER_FOSSILS);
@@ -83,7 +119,6 @@ app.get('/random-fossil.json', (req, res) => {
 ViteExpress.listen(app, port, () => {
   console.log(`Server running on http://localhost:${port}...`);
 });
-
 
 
 // To kill an open server

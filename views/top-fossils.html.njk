@@ -18,6 +18,18 @@
       </div>
     {% endfor %}
   </div>
+  <form action="/like-fossil" method="post">
+    <label for="dropdown">Select a Fossil to Like: </label>
+    <select id="dropdown" name="fossilId">
+      {% for key, fossil in fossils %}
+        <option value="{{ key }}">{{ fossil.name }}</option>
+      {% endfor %}
+    </select>
+    <input type="submit" value="Like Fossil">
+  </form>
+  <a href="/">Go Back to the Homepage</a>
   </body>
 </html>
+
+
 
