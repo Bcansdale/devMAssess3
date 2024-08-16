@@ -12,7 +12,7 @@
   <div class="fossils-container">
     {% for key, fossil in fossils %}
       <div class="fossil-div">
-        <h2>{{ fossil.name }}</h2>
+        <h3>{{ userName }}, this is a {{ fossil.name }}</h3>
         <p>Likes: {{ fossil.num_likes }}</p>
         <img src="{{ fossil.img }}" alt="{{ fossil.name }}">
       </div>
