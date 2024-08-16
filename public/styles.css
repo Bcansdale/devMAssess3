@@ -1,14 +1,22 @@
+
 body {
   background-color: #ffe5b2;
 }
 
 h1 {
+  margin-top: 20px;
   color: red;
   font-family: sans-serif;
 }
 
+h2{
+  color: red;
+  margin-top: 20px;
+}
+
 h3{
   color: red;
+  font-size: 20px;
 }
 
 img {
@@ -29,4 +37,8 @@ img.centered {
 
 .fossil-div img {
   border: 2px solid green;
+}
+
+a {
+  color: red;
 }

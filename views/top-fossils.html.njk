@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Most Liked Fossils</title>
-     <link rel="stylesheet" href="/public/styles.css">
-  </head>
-  <body>
+{% extends 'base.html.njk' %}
+
+{% block content %}
   <h1>Welcome, {{ userName }}</h1>
   <div class="fossils-container">
     {% for key, fossil in fossils %}
@@ -25,11 +18,9 @@
         <option value="{{ key }}">{{ fossil.name }}</option>
       {% endfor %}
     </select>
-    <input type="submit" value="Like Fossil">
+    <input type="submit" value="Like This Fossil">
   </form>
   <a href="/">Go Back to the Homepage</a>
-  </body>
-</html>
 
 
-
+{% endblock %}

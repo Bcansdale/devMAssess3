@@ -39,6 +39,26 @@ const MOST_LIKED_FOSSILS = {
     name: 'Tyrannosaurus Rex',
     num_likes: 601,
   },
+  ammo: {
+    img: '/img/ammonite.png',
+    name: 'Ammonite',
+    num_likes: 1000,
+  },
+  mamm: {
+    img: '/img/mammoth_skull.png',
+    name: 'Mammoth',
+    num_likes: 1000,
+  },
+  opth: {
+    img: '/img/ophthalmo_skull.png',
+    name: 'Opthalmosaurus',
+    num_likes: 1000,
+  },
+  tric: {
+    img: '/img/tricera_skull.png',
+    name: 'Triceratops',
+    num_likes: 1000,
+  },
 };
 
 const OTHER_FOSSILS = [
@@ -119,6 +139,7 @@ app.get('/random-fossil.json', (req, res) => {
 ViteExpress.listen(app, port, () => {
   console.log(`Server running on http://localhost:${port}...`);
 });
+
 
 
 // To kill an open server

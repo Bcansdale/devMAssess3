@@ -1,1 +1,29 @@
-<!-- This has been left intentionally empty -->
+<html lang="">
+<head>
+    <title>Fossils</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+            crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/public/styles.css">
+</head>
+
+<body>
+<nav class="navbar navbar-light bg-danger navbar-expand-sm navbar-custom">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse">
+            <div class="navbar-nav">
+                <a class="nav-link" href="/">Homepage</a>
+                <a class="nav-link" href="/top-fossils">Fossils Page</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div style="margin-left: 5px">
+    {% block content %} BODY OF PAGE GOES HERE VIA INHERITANCE {% endblock %}
+</div>
+</body>
+</html>
