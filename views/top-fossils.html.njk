@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Most Liked Fossils</title>
+     <link rel="stylesheet" href="/public/styles.css">
+  </head>
+  <body>
+  <h1>Welcome, {{ userName }}</h1>
+  <div class="fossils-container">
+    {% for key, fossil in fossils %}
+      <div class="fossil-div">
+        <h2>{{ fossil.name }}</h2>
+        <p>Likes: {{ fossil.num_likes }}</p>
+        <img src="{{ fossil.img }}" alt="{{ fossil.name }}">
+      </div>
+    {% endfor %}
+  </div>
+  </body>
+</html>
+

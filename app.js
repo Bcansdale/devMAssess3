@@ -60,7 +60,20 @@ const OTHER_FOSSILS = [
   },
 ];
 
-// TODO: Replace this comment with your code
+app.get('/', (req,res) => {
+  res.render('homepage.html.njk')
+})
+
+
+app.get('/get-name', (req, res) => {
+  const userName = req.query.name
+  req.session.username = userName;
+  res.redirect('/top-fossils')
+})
+
+app.get('/top-fossils', (req, res) => {
+  res.render('top-fossils.html.njk', { fossils: MOST_LIKED_FOSSILS, userName: req.session.username });
+});
 
 app.get('/random-fossil.json', (req, res) => {
   const randomFossil = lodash.sample(OTHER_FOSSILS);
@@ -70,3 +83,8 @@ app.get('/random-fossil.json', (req, res) => {
 ViteExpress.listen(app, port, () => {
   console.log(`Server running on http://localhost:${port}...`);
 });
+
+
+// To kill an open server
+// sudo lsof -i :8000
+// kill -9 <PID>
